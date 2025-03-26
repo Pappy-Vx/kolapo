@@ -46,7 +46,7 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="w-full inline-block py-14 px-4"
+              className="w-full  py-14 px-4 bg-red-500"
             >
               <p className="whitespace-normal py-12 text-xl font-normal md:mx-80 md:text-2xl">
                 "{testimonial.quote}"
