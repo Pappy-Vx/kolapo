@@ -25,11 +25,11 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#5f08d7", // Matt Farley main purple
+          DEFAULT: "#0D0628", // Matt Farley main purple
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#5ce4b8", // Matt Farley secondary color (mint green)
+          DEFAULT: "#66B2FF", // Matt Farley secondary color (mint green)
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {

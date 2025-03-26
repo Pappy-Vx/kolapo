@@ -3,9 +3,11 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -14,12 +16,39 @@ export default function Navbar() {
   return (
     <nav className="px-[6%]">
       <div className="flex h-32 items-center justify-between">
+      <div
+        className="logo flex items-center space-x-2"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <Image
-          src="https://ext.same-assets.com/1375934874/630824737.png"
-          alt="Matt Farley logo"
+          src="/kola.jpg"
+          alt="kola logo"
           width={40}
           height={40}
         />
+        <div className="overflow-hidden flex space-x-1">
+
+          <motion.span
+            initial={{ x: -20, opacity: 0 }}
+            animate={isHovered ? { x: 0, opacity: 1 } : { x: 20, opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="font-bold"
+          >
+            Kolapo
+          </motion.span>
+
+
+          <motion.span
+            initial={{ x: -20, opacity: 0 }}
+            animate={isHovered ? { x: 0, opacity: 1 } : { x: 20, opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.15, ease: "easeInOut" }}
+            className="font-bold"
+          >
+            Kolawole
+          </motion.span>
+        </div>
+        </div>
         <div className="hidden md:flex items-center">
           <button className="mx-2.5 text-lg font-medium hover:text-primary">Mentorship</button>
           <Link href="#contact" className="btn-primary">Say Hello</Link>
