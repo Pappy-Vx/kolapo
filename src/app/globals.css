@@ -33,6 +33,11 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --swiper-pagination-bullet-inactive-opacity: 1; /* Ensure inactive bullets are fully visible */
+  --swiper-pagination-bullet-size: 14px; /* Bullet size */
+  --swiper-pagination-bullet-inactive-color: #66B2FF; /* Inner color for inactive bullets */
+  --swiper-pagination-bullet-active-color: #0D0628 ; /* Active bullet color */ /* Set your desired color for active bullet */
   }
 
   .dark {
@@ -125,4 +130,57 @@
 
 .animate-wave {
   animation: wave 0.5s ease-in-out infinite;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: var(--swiper-pagination-bullet-inactive-color);
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Custom Pagination Styling */
+/* Custom Pagination */
+.swiper-pagination {
+  bottom: 15px !important; /* Adjust to match reference */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-bullet {
+  width: 8px;
+  height: 8px;
+  border: 2px solid #0D0628; /* Pink border */
+  background: #66B2FF; /* Inner white */
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+/* Active Bullet */
+.swiper-pagination-bullet-active.custom-bullet {
+  width: 14px;
+  height: 14px;
+  background: #0D0628; /* Pink fill */
+  border: 3px solid #66B2FF; /* White border */
+  box-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--swiper-pagination-bullet-inactive-color);
+  opacity: var(--swiper-pagination-bullet-inactive-opacity);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--swiper-pagination-color);
 }
