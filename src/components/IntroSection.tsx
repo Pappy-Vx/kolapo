@@ -4,13 +4,14 @@ export default function IntroSection() {
       <h2 className="mx-auto text-2xl font-bold text-white md:text-3xl">
         Hi, I'm Kolapo. Nice to meet you.
       </h2>
-      <p className="mx-[6%] pt-7 text-lg font-semibold text-white md:mx-auto md:whitespace-pre-line md:text-xl">
-        Since beginning my journey as a freelance designer over 11 years ago, I've
-        done remote work for agencies, consulted for startups, and collaborated with
-        talented people to create digital products for both business and consumer
-        use. I'm quietly confident, naturally curious, and perpetually working on
-        improving my chops one design problem at a time.
+      <p className="mx-[6%] pt-7 text-lg font-semibold text-white md:mx-20 md:whitespace-pre-line md:text-xl">
+        From curiosity to code, from ideas to impact my journey in software
+        engineering is fueled by a passion for building solutions that don’t
+        just work but work brilliantly. Early on, I realized that writing code
+        is only part of the equation. What truly makes a difference? Engineering
+        for efficiency, optimizing resources, and solving real-world problems
+        with scalable, high-performance solutions.
       </p>
     </div>
-  )
+  );
 }
