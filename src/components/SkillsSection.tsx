@@ -1,10 +1,13 @@
+import { div } from "framer-motion/client";
 import Image from "next/image";
 
 export default function SkillsSection() {
   return (
-    <div className="relative top-[-9rem] mx-[6%] grid gap-[1px] overflow-hidden rounded-xl border border-lightGrey bg-lightGrey shadow-md md:grid-cols-3">
+    <div className="items=center justify-center flex">
+    <div className="relative top-[-9rem] mx-[6%] grid gap-[1px] overflow-hidden rounded-xl border border-lightGrey bg-lightGrey shadow-md md:grid-cols-3 w-full max-w-[80rem]">
       {/* Designer Card */}
-      <div className="bg-white px-8 py-16 text-center text-anim">
+      
+      <div className="bg-white px-8 py-16 text-center ">
         <header className="flex flex-col items-center justify-center">
           <div className="overflow-hidden flex items-center justify-center mb-5 rounded-full bg-secondary h-16 w-16 p-4">
             <svg
@@ -170,6 +173,7 @@ export default function SkillsSection() {
           </p>
         </footer>
       </div>
+    </div>
     </div>
   );
 }

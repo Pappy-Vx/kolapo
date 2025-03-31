@@ -3,6 +3,7 @@ import Image from "next/image"
 export default function Header() {
   return (
     <header className="flex min-h-[80vh] flex-col items-center justify-between gap-8 px-[6%] text-center">
+      <div className="w-full max-w-[80rem] flex flex-col items-center justify-center gap-4">
       <h1 className="mt-20 text-3xl text-primary font-bold text-font md:text-5xl">
         Software Engineer
       </h1>
@@ -22,6 +23,8 @@ export default function Header() {
           priority
         />
       </div>
+      </div>
+      
     </header>
   )
 }

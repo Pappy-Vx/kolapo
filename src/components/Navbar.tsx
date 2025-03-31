@@ -16,8 +16,8 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="px-[6%]">
-      <div className="flex h-32 items-center justify-between">
+    <nav className="px-[6%] flex items-center justify-center  ">
+      <div className="flex h-32 items-center justify-between w-full max-w-[80rem]">
         <div
           className="logo flex items-center space-x-2 cursor-pointer"
           onMouseEnter={() => setIsHovered(true)}

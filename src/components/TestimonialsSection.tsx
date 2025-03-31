@@ -45,7 +45,8 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <div className="mx-[6%] py-32 text-center">
+    <div className="mx-[6%] py-32 flex items-center justify-center ">
+      <div className="w-full max-w-[80rem] text-center">
       <h1 className="text-2xl font-bold md:text-3xl md:font-semibold">
         Testimonials
       </h1>
@@ -75,6 +76,8 @@ export default function TestimonialsSection() {
           ))}
         </Swiper>
       </div>
+      </div>
+      
     </div>
   );
 }

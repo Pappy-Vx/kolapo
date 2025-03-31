@@ -18,8 +18,8 @@ export default function Home() {
       <IntroSection />
       <SkillsSection />
       <RecentWorkSection />
-      <CollaborationSection />
-      <StartupProjectsSection />
+      {/* <CollaborationSection /> */}
+      {/* <StartupProjectsSection /> */}
       <ContactSection />
       <TestimonialsSection />
       <CTASection />
