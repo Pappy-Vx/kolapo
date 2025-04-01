@@ -10,51 +10,51 @@ export default function RecentWorkSection() {
   const projects = [
     {
       id: 1,
-      title: "High-end, custom residential renovaters serving Fraser Valley homeowners.",
-      image: "https://ext.same-assets.com/3669320772/357205201.png",
-      alt: "WF Design Build",
-      bgColor: "#2E2E2E",
-      url:"",
+      title: "ShadowSwap is a one-stop decentralized trading protocol.",
+      image: "/shdw.jpeg",
+      alt: "ShadowSwap",
+      bgColor: "#6139af",
+      url:"https://shadowswap.xyz/",
     },
     {
       id: 2,
-      title: "Accounting and tax services characterized by quality, reliability and trust.",
-      image: "https://ext.same-assets.com/3669320772/3800605393.png",
-      alt: "Coupal",
-      bgColor: "#2E2E2E",
-      url:"",
+      title: "Innovating Fintech, Social Welfare, and Data Management",
+      image: "/proxima.jpeg",
+      alt: "ProximaForte",
+      bgColor: "#B2E821",
+      url:"https://www.proximaforte.com/",
     },
     {
       id: 3,
-      title: "Blockchain pioneers bringing transparency, trust, and security to supply.",
-      image: "https://ext.same-assets.com/3669320772/1568695583.png",
-      alt: "Chronicled",
-      bgColor: "#2E2E2E",
-      url:"",
+      title: "KWASRRA is committed to collecting comprehensive data.",
+      image: "/kwass.jpeg",
+      alt: "Kwasrra",
+      bgColor: "#2AA96D",
+      url:"https://www.kwasrra.ng/",
     },
     {
       id: 4,
-      title: "Business savvy tech experts helping forward thinking companies get things done.",
-      image: "https://ext.same-assets.com/3669320772/3047193721.png",
-      alt: "Burkettandco",
-      bgColor: "#2E2E2E",
-      url:"",
+      title: "Send Groceries to your loved ones in Nigeria, Bamiraa.",
+      image: "/bam.jpeg",
+      alt: "Bamiraa",
+      bgColor: "#FAA94A",
+      url:"https://bamiraa.com/",
     },
     {
       id: 5,
-      title: "Vancouver's tower crane rental service and support leader since 1974.",
-      image: "https://ext.same-assets.com/3669320772/3417307927.png",
-      alt: "GLC Solutions",
-      bgColor: "#2E2E2E",
-      url:"",
+      title: "Shop for top tier medical products in Nigeria.",
+      image: "/beta.jpeg",
+      alt: "Betaship",
+      bgColor: "#330066",
+      url:"https://betaship.com.ng/",
     },
     {
       id: 6,
-      title: "Results-oriented, responsive and flexible full service civil engineering firm.",
-      image: "https://ext.same-assets.com/3669320772/2536143222.png",
-      alt: "Wedler Engineering",
+      title: "Turning data into impact and nonprofits into success stories",
+      image: "/ej.jpeg",
+      alt: "Portfolio",
       bgColor: "#2E2E2E",
-      url:"",
+      url:"https://elizabethjikemi.netlify.app/",
     }
   ]
   const [bgColor, setBgColor] = useState("#FFFFFF");
@@ -89,7 +89,7 @@ export default function RecentWorkSection() {
                 <span className="  ">
                   {project.title}
                 </span>
-                <Link href={project.url} className="bg-primary mx-auto"> Click here</Link>
+                <Link href={project.url} className="bg-primary mx-auto text-white rounded-full px-3 py-2"> Click here</Link>
                 </div>
                
 
