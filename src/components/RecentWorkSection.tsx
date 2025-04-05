@@ -61,17 +61,17 @@ export default function RecentWorkSection() {
 
   return (
     <motion.div
-      className="max-h-[60rem] transition-colors duration-700 ease-in-out py-24 md:py-36  flex  justify-center items-center "
+      className="max-h-screen relative mt-[30rem] md:mt-10 md:max-h-[60rem] transition-colors duration-700 ease-in-out py-24 md:py-36  flex  justify-center items-center "
       style={{
         backgroundColor: bgColor,
         color: bgColor === "white" ? "white" : "#0D0628",
       }} // Adjust text color based on background
     >
     <div className="w-full max-w-[80rem] flex flex-col gap-10 items-center justify-center">
-    <h1 className="text-2xl font-bold text-font md:text-3xl">My Recent Work</h1>
-      <h2 className="pt-6 text-xl font-semibold text-font">
+    <h1 className="text-2xl font-bold text-font md:text-3xl mx-6">My Recent Work</h1>
+      <h2 className="pt-6 text-xl font-semibold text-font mx-6">
         Here are a few past design projects I've worked on. Want to see more?
-        <Link href="#contact" className="text-blue-500 hover:text-blue-700"> Email me</Link>.
+        <Link href="mailto:kolawolekolapo20@gmail.com" className="text-blue-500 hover:text-blue-700"> Email me</Link>.
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -89,7 +89,7 @@ export default function RecentWorkSection() {
                 <span className="  ">
                   {project.title}
                 </span>
-                <Link href={project.url} className="bg-primary mx-auto text-white rounded-full px-3 py-2"> Click here</Link>
+                <span className="bg-primary mx-auto text-white rounded-full px-3 py-2"> Click here</span>
                 </div>
                
 
