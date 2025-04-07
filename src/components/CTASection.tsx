@@ -8,7 +8,7 @@ export default function CTASection() {
         <p className="w-11/12 text-center text-base font-medium text-white md:w-[35%] md:text-lg">
           Interested in working together? We should queue up a time to chat. I'll buy the coffee.
         </p>
-        <Link href="#contact" className="btn-white">
+        <Link href="/contact" className="btn-white">
           Let's do this
         </Link>
       </div>

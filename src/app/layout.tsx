@@ -1,6 +1,13 @@
+"use client"
+
 import { cn } from "@/lib/utils"
 import "./globals.css"
 import { Inter } from "next/font/google"
+
+import { AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation"; // ✅ Get current route
+import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,24 +15,23 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
-export const metadata = {
-  title: "Kolapo Kolawole | Software Engineer & Co-Founder",
-  description: "I'm a software engineer and co-founder based in Lagos, Nigeria. I specialize in building web applications and software solutions.",
-}
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname(); // 🔥 Get the current route
+
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/kola.jpg" />
-      </head>
-      <body className={cn(inter.variable, "min-h-screen bg-background antialiased")}>
-        {children}
+    <html lang="en">
+      <body className={`${inter.className} `}>
+       
+        <main className="relative">
+          <AnimatePresence mode="wait">
+            <PageTransition key={pathname}>
+              {children}
+            </PageTransition>
+          </AnimatePresence>
+        </main>
+        <Footer />
       </body>
     </html>
-  )
+  );
 }

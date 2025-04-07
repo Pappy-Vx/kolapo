@@ -14,7 +14,7 @@ export default function ContactSection() {
           I'm always open to discussing product design work or partnership
           opportunities.
         </h2>
-        <Link href="" className="btn-primary mx-auto text-primary btnarrw w-full md:w-[15rem] flex items-center justify-center">
+        <Link href="/contact" className="btn-primary mx-auto text-primary btnarrw w-full md:w-[15rem] flex items-center justify-center">
           <span>Start a conversation</span>
           <svg
             width="800px"
