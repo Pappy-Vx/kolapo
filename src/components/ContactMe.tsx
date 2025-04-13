@@ -41,7 +41,7 @@ export default function ContactMe() {
 
   return (
     <>
-      <nav className="px-[6%] flex items-center justify-center">
+      <nav className="px-[6%] flex items-center justify-center ">
         <div className="flex h-32 items-center justify-between w-full max-w-[80rem]">
           <Link
             href="/"
@@ -88,7 +88,7 @@ export default function ContactMe() {
         </div>
       </nav>
 
-      <div>
+      <div className="mb-20">
         <h2 className="text-xl font-bold text-font md:text-4xl md:font-semibold text-center mx-[6%] mt-32">
           Want to discuss a startup / Project Collaboration? I'm most definitely game.
         </h2>
