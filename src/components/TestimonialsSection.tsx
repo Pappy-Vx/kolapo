@@ -40,7 +40,7 @@ export default function TestimonialsSection() {
       quote:
         "Working with Kolawole Kolapo has been an absolute pleasure. His technical skills are top-notch, and his ability to communicate complex ideas clearly is a rare find. He consistently goes above and beyond to ensure project success, and his positive attitude makes collaboration enjoyable.",
       name: "Seyi Kayode",
-      title: "Digital ,arketer, Jumia",
+      title: "Digital Marketer, Jumia",
     },
   ];
 
