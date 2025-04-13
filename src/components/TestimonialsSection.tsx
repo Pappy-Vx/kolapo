@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id}>
               <div className="w-full py-14 px-4">
-                <p className="whitespace-normal py-12 text-xl font-normal md:mx-80 md:text-2xl">
+                <p className="whitespace-normal py-12 text-xl font-normal mx-8 md:mx-20 md:text-2xl">
                   "{testimonial.quote}"
                 </p>
                 <h2 className="text-xl font-semibold">{testimonial.name}</h2>

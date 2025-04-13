@@ -1,8 +1,13 @@
 import ContactMe from "@/components/ContactMe"
 
 export const metadata = {
-    title: 'Contact • Elizabeth Jikiemi Award-Winning Project Manager and NGO Specialist',
-    description: 'Elizabeth Jikiemi is a Super Award-Winning Project Manager and NGO Specialist based in Indiana specializing in branding, design, interactive, and advertising to help challenger brands break through the clutter and outsmart the competition.',
+    title: 'Contact • Kolawole Kolapo | Software Engineer & Co-Founder',
+    description: 'Kolawole kolapo is a software engineer and co-founder based in Lagos, Nigeria. He specializes in building web applications and software solutions.',
+    icons: {
+      icon: [
+        { url: "/kola.jpg", type: "image/jpg" }
+      ]
+    }
   }
 
 export default function Contact() {

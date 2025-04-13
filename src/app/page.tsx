@@ -8,7 +8,7 @@ import StartupProjectsSection from "@/components/StartupProjectsSection"
 import ContactSection from "@/components/ContactSection"
 import TestimonialsSection from "@/components/TestimonialsSection"
 import CTASection from "@/components/CTASection"
-import Footer from "@/components/Footer"
+
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -34,7 +34,7 @@ export default function Home() {
       <ContactSection />
       <TestimonialsSection />
       <CTASection />
-      <Footer />
+      
     </main>
   )
 }

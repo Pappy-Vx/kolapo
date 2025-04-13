@@ -4,8 +4,9 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FaGithub, FaPhone } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import { BiPhoneCall } from "react-icons/bi";
 
 export default function ContactMe() {
   const form = useRef<HTMLFormElement>(null);
@@ -20,7 +21,7 @@ export default function ContactMe() {
       emailjs
         .sendForm(
           "service_x2aghk8",
-          "template_hvrlyxn",
+          "template_9dwmn87",
           form.current,
           "OIfB_KrmWkKysMQyt" // Replace this with your EmailJS public key
         )
@@ -81,15 +82,15 @@ export default function ContactMe() {
               href="tel:+2349042418998"
               className="bg-primary rounded-full h-10 w-10 flex items-center justify-center"
             >
-              <FaPhone className="text-secondary text-lg" />
+              <BiPhoneCall className="text-secondary text-xl" />
             </Link>
           </div>
         </div>
       </nav>
 
       <div>
-        <h2 className="text-xl font-bold text-font md:text-5xl md:font-semibold text-center mx-[6%] mt-32">
-          Want to discuss a startup collaboration? I'm most definitely game.
+        <h2 className="text-xl font-bold text-font md:text-4xl md:font-semibold text-center mx-[6%] mt-32">
+          Want to discuss a startup / Project Collaboration? I'm most definitely game.
         </h2>
 
         <form
@@ -126,8 +127,11 @@ export default function ContactMe() {
                 className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="">Select</option>
-                <option value="AI For NGOs">AI For NGOs</option>
-                <option value="Data Dashboard">Data Dashboard</option>
+                <option value="ai">AI projects</option>
+                <option value="Fintech">Fintech / Crypto</option>
+                <option value="ecommerce">eCommerce</option>
+                <option value="business">Business</option>
+                <option value="others">Others</option>
               </select>
             </div>
             <div className="w-full">
@@ -137,9 +141,9 @@ export default function ContactMe() {
                 className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="">Select</option>
-                <option value="Mentorship">Mentorship</option>
-                <option value="Partnership">Partnership</option>
-                <option value="Funding">Funding</option>
+                <option value="partnership">Partnership</option>
+                <option value="development">Development</option>
+                <option value="consultation">Consultation</option>
               </select>
             </div>
           </div>
