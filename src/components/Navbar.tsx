@@ -9,6 +9,7 @@ import { useTheme } from "./ThemeProvider";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoHovered, setLogoHovered] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -27,6 +28,9 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ];
 
+  const firstName = "Kolapo";
+  const lastName = "Kolawole";
+
   return (
     <>
       <motion.nav
@@ -41,27 +45,87 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="relative group flex items-center gap-3">
-              <div className="relative h-10 w-10 rounded-full overflow-hidden ring-2 ring-neon-purple/30 transition-all duration-300 group-hover:ring-neon-purple/60">
+            {/* Logo - KK that expands to Kolapo Kolawole on hover */}
+            <Link
+              href="/"
+              className="relative flex items-center gap-3 group"
+              onMouseEnter={() => setLogoHovered(true)}
+              onMouseLeave={() => setLogoHovered(false)}
+            >
+              <div className="relative h-10 w-10 rounded-full overflow-hidden ring-2 ring-neon-purple/30 transition-all duration-300 group-hover:ring-neon-purple/60 flex-shrink-0">
                 <Image src="/kola.jpg" alt="Kolapo" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-br from-neon-purple/20 to-neon-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <div className="flex items-center overflow-hidden">
+
+              <div className="relative flex items-center overflow-hidden">
+                {/* KK - always present, fades out on hover */}
                 <motion.span
                   className="font-bold text-lg gradient-text"
-                  initial={{ opacity: 1 }}
-                  whileHover={{ scale: 1.05 }}
+                  animate={{
+                    opacity: logoHovered ? 0 : 1,
+                    scale: logoHovered ? 0.8 : 1,
+                    width: logoHovered ? 0 : "auto",
+                  }}
+                  transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
                 >
                   KK
                 </motion.span>
-                <motion.span
-                  className="font-medium text-sm text-muted-foreground ml-2 hidden sm:inline-block"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 1, duration: 0.5 }}
-                >
-                </motion.span>
+
+                {/* Full name - appears on hover */}
+                <AnimatePresence>
+                  {logoHovered && (
+                    <motion.div
+                      className="flex items-center gap-1.5 whitespace-nowrap"
+                      initial={{ width: 0, opacity: 0 }}
+                      animate={{ width: "auto", opacity: 1 }}
+                      exit={{ width: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                    >
+                      {/* First name letters */}
+                      {firstName.split("").map((letter, i) => (
+                        <motion.span
+                          key={`first-${i}`}
+                          className="font-bold text-lg gradient-text inline-block"
+                          initial={{ opacity: 0, y: 10, rotateX: -90 }}
+                          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                          exit={{ opacity: 0, y: -10, rotateX: 90 }}
+                          transition={{
+                            duration: 0.3,
+                            delay: i * 0.03,
+                            ease: [0.23, 1, 0.32, 1],
+                          }}
+                        >
+                          {letter}
+                        </motion.span>
+                      ))}
+
+                      <motion.span
+                        className="w-1.5"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                      />
+
+                      {/* Last name letters */}
+                      {lastName.split("").map((letter, i) => (
+                        <motion.span
+                          key={`last-${i}`}
+                          className="font-semibold text-lg text-muted-foreground inline-block"
+                          initial={{ opacity: 0, y: 10, rotateX: -90 }}
+                          animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                          exit={{ opacity: 0, y: -10, rotateX: 90 }}
+                          transition={{
+                            duration: 0.3,
+                            delay: firstName.length * 0.03 + i * 0.03,
+                            ease: [0.23, 1, 0.32, 1],
+                          }}
+                        >
+                          {letter}
+                        </motion.span>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </Link>
 

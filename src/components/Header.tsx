@@ -1,14 +1,89 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { HiArrowDown } from "react-icons/hi";
 import { FaXTwitter } from "react-icons/fa6";
+import { HiArrowDown } from "react-icons/hi";
+import { useRef } from "react";
+
+// Individual draggable letter component with spring-back
+function DraggableLetter({
+  letter,
+  index,
+  total,
+}: {
+  letter: string;
+  index: number;
+  total: number;
+}) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  // Spring physics for the bounce-back
+  const springX = useSpring(x, { stiffness: 300, damping: 15, mass: 0.8 });
+  const springY = useSpring(y, { stiffness: 300, damping: 15, mass: 0.8 });
+
+  // Rotation based on drag position for playful feel
+  const rotate = useTransform(springX, [-100, 100], [-25, 25]);
+
+  // Scale up slightly when dragging
+  const scale = useTransform(
+    [springX, springY],
+    // @ts-ignore
+    ([latestX, latestY]: [number, number]) => {
+      const distance = Math.sqrt(latestX * latestX + latestY * latestY);
+      return 1 + Math.min(distance / 500, 0.3);
+    }
+  );
+
+  return (
+    <motion.span
+      className="inline-block gradient-text cursor-grab active:cursor-grabbing select-none relative"
+      style={{
+        x: springX,
+        y: springY,
+        rotate,
+        scale,
+        fontSize: "inherit",
+        fontWeight: "inherit",
+        lineHeight: "inherit",
+        letterSpacing: "inherit",
+      }}
+      drag
+      dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+      dragElastic={0.9}
+      dragTransition={{ bounceStiffness: 300, bounceDamping: 10 }}
+      onDragEnd={() => {
+        // Animate back to origin
+        x.set(0);
+        y.set(0);
+      }}
+      whileTap={{ scale: 1.2 }}
+      initial={{ opacity: 0, y: 80 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        opacity: { delay: 0.3 + index * 0.08, duration: 0.5 },
+        y: { delay: 0.3 + index * 0.08, duration: 0.8, ease: [0.23, 1, 0.32, 1] },
+      }}
+    >
+      {letter}
+      {/* Subtle glow under each letter on hover */}
+      <motion.span
+        className="absolute inset-0 blur-xl opacity-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(135deg, #7C3AED, #3B82F6)",
+          zIndex: -1,
+        }}
+        whileHover={{ opacity: 0.3 }}
+      />
+    </motion.span>
+  );
+}
 
 export default function Header() {
-  const firstName = "KOLAPO";
-  const lastName = "KOLAWOLE";
+  const name = "KOLAPO";
+  const constraintRef = useRef(null);
 
   return (
     <header className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden section-padding">
@@ -21,7 +96,7 @@ export default function Header() {
       <div className="absolute inset-0 dot-grid opacity-40" />
 
       {/* Main content */}
-      <div className="relative z-10 max-w-6xl mx-auto text-center mt-10">
+      <div className="relative z-10 max-w-6xl mx-auto text-center mt-10" ref={constraintRef}>
         {/* Status badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,48 +111,28 @@ export default function Header() {
           <span className="text-sm text-muted-foreground font-medium">Full Stack Developer · Available for collaboration</span>
         </motion.div>
 
-        {/* Name - Large animated text */}
-        <div className="overflow-hidden mb-2">
-          <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, ease: [0.23, 1, 0.32, 1], delay: 0.4 }}
+        {/* Name - Draggable letters */}
+        <div className="mb-12">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none">
+            {name.split("").map((letter, i) => (
+              <DraggableLetter
+                key={i}
+                letter={letter}
+                index={i}
+                total={name.length}
+              />
+            ))}
+          </h1>
+          
+          {/* Instruction hint */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 1 }}
+            className="text-xs text-muted-foreground/50 mt-4 uppercase tracking-[0.3em]"
           >
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none">
-              {firstName.split("").map((letter, i) => (
-                <motion.span
-                  key={i}
-                  className="inline-block gradient-text hover:scale-110 transition-transform duration-300 cursor-default"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + i * 0.05, duration: 0.5 }}
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </h1>
-          </motion.div>
-        </div>
-        <div className="overflow-hidden mb-8">
-          <motion.div
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, ease: [0.23, 1, 0.32, 1], delay: 0.6 }}
-          >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-none text-foreground/30">
-              {lastName.split("").map((letter, i) => (
-                <motion.span
-                  key={i}
-                  className="inline-block hover:text-foreground transition-colors duration-300 cursor-default"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 + i * 0.04, duration: 0.5 }}
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </h2>
-          </motion.div>
+            ↕ drag the letters ↕
+          </motion.p>
         </div>
 
         {/* Role */}
