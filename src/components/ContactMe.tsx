@@ -2,13 +2,11 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { HiArrowLeft } from "react-icons/hi";
 import Navbar from "./Navbar";
-import { useTheme } from "./ThemeProvider";
 
 export default function ContactMe() {
   const form = useRef<HTMLFormElement>(null);

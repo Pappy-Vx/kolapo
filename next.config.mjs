@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  distDir: 'out',
   images: {
     unoptimized: true,
     domains: [
@@ -9,11 +7,17 @@ const nextConfig = {
       "images.unsplash.com",
       "ext.same-assets.com",
       "ugc.same-assets.com",
+      "cdn.jsdelivr.net",
+      "cdn.simpleicons.org",
     ],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "ext.same-assets.com",
+        hostname: "cdn.jsdelivr.net",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.simpleicons.org",
       },
     ],
   },

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { HiArrowUp } from "react-icons/hi";
 import { motion } from "framer-motion";
 
@@ -28,8 +29,8 @@ export default function Footer() {
               </div>
               <span className="font-bold text-xl gradient-text">Kolapo Kolawole</span>
             </Link>
-            <p className="text-muted-foreground leading-relaxed">
-              Full Stack Developer based in Lagos, Nigeria. Building digital experiences that make a difference.
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              MSc Researcher · .NET &amp; JavaScript Developer · AI &amp; Data Science Enthusiast. Engineering intelligent systems that scale — one architecture at a time.
             </p>
           </div>
 
@@ -61,11 +62,18 @@ export default function Footer() {
                 <FaGithub className="text-lg" />
               </Link>
               <Link
-                href="https://www.linkedin.com/in/kolapo-kolawole-21495b1b3/"
+                href="https://www.linkedin.com/in/kolapo-kolawole"
                 target="_blank"
                 className="p-3 rounded-xl border border-border hover:border-neon-blue/40 text-muted-foreground hover:text-foreground transition-all duration-300 hover:-translate-y-1"
               >
                 <FaLinkedin className="text-lg" />
+              </Link>
+              <Link
+                href="https://x.com/"
+                target="_blank"
+                className="p-3 rounded-xl border border-border hover:border-foreground/40 text-muted-foreground hover:text-foreground transition-all duration-300 hover:-translate-y-1"
+              >
+                <FaXTwitter className="text-lg" />
               </Link>
             </div>
             <p className="text-muted-foreground text-sm">
@@ -79,7 +87,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border">
           <p className="text-muted-foreground text-sm mb-4 md:mb-0">
-            &copy; {currentYear} Kolapo Kolawole. Crafted with passion.
+            &copy; {currentYear} Kolapo Kolawole. Crafted with ❤️, ☕, and .NET magic ✨
           </p>
           <motion.button
             onClick={scrollToTop}

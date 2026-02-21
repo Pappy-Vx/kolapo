@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiArrowDown } from "react-icons/hi";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Header() {
-  const name = "KOLAPO";
-  const subtitle = "KOLAWOLE";
+  const firstName = "KOLAPO";
+  const lastName = "KOLAWOLE";
 
   return (
     <header className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden section-padding">
@@ -32,7 +33,7 @@ export default function Header() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
           </span>
-          <span className="text-sm text-muted-foreground font-medium">Available for freelance work</span>
+          <span className="text-sm text-muted-foreground font-medium">MSc Researcher · Available for collaboration</span>
         </motion.div>
 
         {/* Name - Large animated text */}
@@ -43,7 +44,7 @@ export default function Header() {
             transition={{ duration: 1, ease: [0.23, 1, 0.32, 1], delay: 0.4 }}
           >
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none">
-              {name.split("").map((letter, i) => (
+              {firstName.split("").map((letter, i) => (
                 <motion.span
                   key={i}
                   className="inline-block gradient-text hover:scale-110 transition-transform duration-300 cursor-default"
@@ -64,7 +65,7 @@ export default function Header() {
             transition={{ duration: 1, ease: [0.23, 1, 0.32, 1], delay: 0.6 }}
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-none text-foreground/30">
-              {subtitle.split("").map((letter, i) => (
+              {lastName.split("").map((letter, i) => (
                 <motion.span
                   key={i}
                   className="inline-block hover:text-foreground transition-colors duration-300 cursor-default"
@@ -86,11 +87,12 @@ export default function Header() {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="space-y-4 mb-12"
         >
-          <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Full Stack Developer crafting{" "}
-            <span className="text-foreground font-medium">high-performance</span>{" "}
-            digital experiences with{" "}
-            <span className="gradient-text font-medium">modern technologies</span>
+          <p className="text-xl md:text-2xl font-light text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <span className="text-foreground font-medium">.NET & JavaScript Developer</span>{" "}
+            · <span className="gradient-text font-medium">AI & Data Science Enthusiast</span>{" "}
+            <br className="hidden md:block" />
+            Engineering intelligent, resilient systems that{" "}
+            <span className="text-foreground font-medium">scale</span>
           </p>
         </motion.div>
 
@@ -125,11 +127,18 @@ export default function Header() {
             <FaGithub className="text-xl" />
           </Link>
           <Link
-            href="https://www.linkedin.com/in/kolapo-kolawole-21495b1b3/"
+            href="https://www.linkedin.com/in/kolapo-kolawole"
             target="_blank"
             className="p-3 rounded-full border border-border hover:border-neon-blue/40 text-muted-foreground hover:text-foreground transition-all duration-300 hover:shadow-lg hover:shadow-neon-blue/10 hover:-translate-y-1"
           >
             <FaLinkedin className="text-xl" />
+          </Link>
+          <Link
+            href="https://x.com/"
+            target="_blank"
+            className="p-3 rounded-full border border-border hover:border-foreground/40 text-muted-foreground hover:text-foreground transition-all duration-300 hover:shadow-lg hover:shadow-foreground/10 hover:-translate-y-1"
+          >
+            <FaXTwitter className="text-xl" />
           </Link>
         </motion.div>
       </div>
