@@ -21,7 +21,7 @@ export default function Header() {
       <div className="absolute inset-0 dot-grid opacity-40" />
 
       {/* Main content */}
-      <div className="relative z-10 max-w-6xl mx-auto text-center">
+      <div className="relative z-10 max-w-6xl mx-auto text-center mt-10">
         {/* Status badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ export default function Header() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
           </span>
-          <span className="text-sm text-muted-foreground font-medium">MSc Researcher · Available for collaboration</span>
+          <span className="text-sm text-muted-foreground font-medium">Full Stack Developer · Available for collaboration</span>
         </motion.div>
 
         {/* Name - Large animated text */}

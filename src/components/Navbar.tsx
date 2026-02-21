@@ -61,7 +61,6 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1, duration: 0.5 }}
                 >
-                  / Full Stack Developer
                 </motion.span>
               </div>
             </Link>

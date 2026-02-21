@@ -30,7 +30,7 @@ export default function Footer() {
               <span className="font-bold text-xl gradient-text">Kolapo Kolawole</span>
             </Link>
             <p className="text-muted-foreground leading-relaxed text-sm">
-              MSc Researcher · .NET &amp; JavaScript Developer · AI &amp; Data Science Enthusiast. Engineering intelligent systems that scale — one architecture at a time.
+              MSc Researcher · .NET &amp; JavaScript Developer · AI &amp; Data Science Enthusiast. Engineering intelligent systems that scale, one architecture at a time.
             </p>
           </div>
 

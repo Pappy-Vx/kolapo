@@ -8,10 +8,10 @@ export default function IntroSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const stats = [
-    { number: "4+", label: "Years Experience" },
+    { number: "5+", label: "Years Experience" },
     { number: "30+", label: "Projects Delivered" },
     { number: "20+", label: "Happy Clients" },
-    { number: "MSc", label: "Researcher" },
+    { number: "2+", label: "Startups" },
   ];
 
   return (
@@ -40,7 +40,7 @@ export default function IntroSection() {
                   I&apos;m a software engineer passionate about building resilient, scalable systems that bridge research and real-world applications. My experience spans <span className="text-foreground font-medium">enterprise-grade .NET development for financial systems</span>, <span className="text-foreground font-medium">machine learning research</span>, and <span className="text-foreground font-medium">full-stack web engineering</span>.
                 </p>
                 <p>
-                  I specialize in crafting robust backend architectures — leveraging <span className="gradient-text font-medium">Domain-Driven Design (DDD)</span>, <span className="gradient-text font-medium">Event-Driven Architecture</span>, and <span className="gradient-text font-medium">ACID-compliant database systems</span>. Whether it&apos;s designing APIs with REST, gRPC, and SignalR, or building intelligent systems with CNNs and ML models, I engineer solutions that perform and endure.
+                  I specialize in crafting robust backend architectures , leveraging <span className="gradient-text font-medium">Domain-Driven Design (DDD)</span>, <span className="gradient-text font-medium">Event-Driven Architecture</span>, and <span className="gradient-text font-medium">ACID-compliant database systems</span>. Whether it&apos;s designing APIs with REST, gRPC, and SignalR, or building intelligent systems with CNNs and ML models, I engineer solutions that perform and endure.
                 </p>
               </div>
             </motion.div>
