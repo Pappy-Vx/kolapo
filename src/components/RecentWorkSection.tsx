@@ -1,124 +1,198 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { HiArrowUpRight } from "react-icons/hi2";
+
+const projects = [
+  {
+    id: 1,
+    title: "ShadowSwap",
+    description: "A one-stop decentralized trading protocol",
+    longDescription: "Built a DeFi protocol enabling seamless token swaps with low fees and high security on the blockchain.",
+    image: "/shdw.jpeg",
+    tags: ["DeFi", "Web3", "React"],
+    color: "#7C3AED",
+    url: "https://shadowswap.xyz/",
+  },
+  {
+    id: 2,
+    title: "ProximaForte",
+    description: "Innovating Fintech, Social Welfare & Data",
+    longDescription: "Led development of fintech solutions bridging social welfare and data management for emerging markets.",
+    image: "/proxima.jpeg",
+    tags: ["Fintech", "Next.js", "API"],
+    color: "#3B82F6",
+    url: "https://www.proximaforte.com/",
+  },
+  {
+    id: 3,
+    title: "KWASRRA",
+    description: "Comprehensive data collection platform",
+    longDescription: "Engineered a data-driven platform committed to collecting and analyzing comprehensive datasets.",
+    image: "/kwass.jpeg",
+    tags: ["Data", "Full Stack", "MongoDB"],
+    color: "#06B6D4",
+    url: "https://www.kwasrra.ng/",
+  },
+  {
+    id: 4,
+    title: "Bamiraa",
+    description: "Grocery delivery for loved ones in Nigeria",
+    longDescription: "Developed an e-commerce platform enabling users to send groceries to their loved ones across Nigeria.",
+    image: "/bam.jpeg",
+    tags: ["eCommerce", "Shopify", "Node.js"],
+    color: "#8B5CF6",
+    url: "https://bamiraa.com/",
+  },
+  {
+    id: 5,
+    title: "Betaship",
+    description: "Top tier medical products in Nigeria",
+    longDescription: "Built an online marketplace for high-quality medical products with secure checkout and delivery tracking.",
+    image: "/beta.jpeg",
+    tags: ["eCommerce", "React", "Express"],
+    color: "#6366F1",
+    url: "https://betaship.com.ng/",
+  },
+  {
+    id: 6,
+    title: "Elizabeth Jikiemi",
+    description: "Data-driven nonprofit success stories",
+    longDescription: "Designed and developed a portfolio turning data insights into measurable impact for nonprofits.",
+    image: "/ej.jpeg",
+    tags: ["Portfolio", "Design", "Next.js"],
+    color: "#7C3AED",
+    url: "https://elizabethjikemi.netlify.app/",
+  },
+];
 
 export default function RecentWorkSection() {
-  // Project data
-  const projects = [
-    {
-      id: 1,
-      title: "ShadowSwap is a one-stop decentralized trading protocol.",
-      image: "/shdw.jpeg",
-      alt: "ShadowSwap",
-      bgColor: "#6139af",
-      url:"https://shadowswap.xyz/",
-    },
-    {
-      id: 2,
-      title: "Innovating Fintech, Social Welfare, and Data Management",
-      image: "/proxima.jpeg",
-      alt: "ProximaForte",
-      bgColor: "#B2E821",
-      url:"https://www.proximaforte.com/",
-    },
-    {
-      id: 3,
-      title: "KWASRRA is committed to collecting comprehensive data.",
-      image: "/kwass.jpeg",
-      alt: "Kwasrra",
-      bgColor: "#2AA96D",
-      url:"https://www.kwasrra.ng/",
-    },
-    {
-      id: 4,
-      title: "Send Groceries to your loved ones in Nigeria, Bamiraa.",
-      image: "/bam.jpeg",
-      alt: "Bamiraa",
-      bgColor: "#FAA94A",
-      url:"https://bamiraa.com/",
-    },
-    {
-      id: 5,
-      title: "Shop for top tier medical products in Nigeria.",
-      image: "/beta.jpeg",
-      alt: "Betaship",
-      bgColor: "#330066",
-      url:"https://betaship.com.ng/",
-    },
-    {
-      id: 6,
-      title: "Turning data into impact and nonprofits into success stories",
-      image: "/ej.jpeg",
-      alt: "Portfolio",
-      bgColor: "#2E2E2E",
-      url:"https://elizabethjikemi.netlify.app/",
-    }
-  ]
-  const [bgColor, setBgColor] = useState("#FFFFFF");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <motion.div
-      className="max-h-screen relative mt-[30rem] md:mt-10 md:max-h-[60rem] transition-colors duration-700 ease-in-out py-24 md:py-36  flex  justify-center items-center "
-      style={{
-        backgroundColor: bgColor,
-        color: bgColor === "white" ? "white" : "#0D0628",
-      }} // Adjust text color based on background
-    >
-    <div className="w-full max-w-[80rem] flex flex-col gap-10 items-center justify-center">
-    <h1 className="text-2xl font-bold text-font md:text-3xl mx-6">My Recent Work</h1>
-      <h2 className="pt-6 text-xl font-semibold text-font mx-6">
-        Here are a few past design projects I've worked on. Want to see more?
-        <Link href="mailto:kolawolekolapo20@gmail.com" className="text-blue-500 hover:text-blue-700"> Email me</Link>.
-      </h2>
+    <section id="projects" ref={ref} className="relative py-32 section-padding overflow-hidden">
+      {/* Background */}
+      <div className="orb-gradient w-[600px] h-[600px] bg-neon-purple top-[30%] right-[-15%]" />
+      <div className="orb-gradient w-[400px] h-[400px] bg-neon-blue bottom-[10%] left-[-10%]" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Link key={index} href={project.url} target="_blank">
-              <motion.div
-                className="relative group overflow-hidden  flex flex-col justify-center items-center overflow-hidden cursor-pointer transition-all duration-700 bg-[#66B2FF1A] rounded-lg px-4 text-center"
-                onMouseEnter={() => setBgColor(project.bgColor)}
-                onMouseLeave={() =>
-                  setBgColor( "#FFFFFF")
-                }
-              >
-                {/* project Name */}
-                <div className="mx-16 my-16 flex flex-col items-center justify-center gap-2" >
-                <span className="  ">
-                  {project.title}
-                </span>
-                <span className="bg-primary mx-auto text-white rounded-full px-3 py-2"> Click here</span>
-                </div>
-               
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <span className="text-sm font-semibold uppercase tracking-widest gradient-text mb-4 block">
+            Portfolio
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            Featured <span className="gradient-text">Projects</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            A selection of projects that showcase my passion for creating impactful digital solutions
+          </p>
+        </motion.div>
 
-                {/* Image (Zooms in on hover) */}
-                <motion.div
-                  className="absolute w-full h-full"
-                  initial={{ scale: 1, opacity: 0 }}
-                  whileHover={{ scale: 1.2, opacity: 1 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+        {/* Projects grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.1 + i * 0.1 }}
+            >
+              <Link href={project.url} target="_blank" rel="noopener noreferrer">
+                <div
+                  className="group glass-card rounded-2xl overflow-hidden cursor-pointer relative"
+                  onMouseEnter={() => setHoveredId(project.id)}
+                  onMouseLeave={() => setHoveredId(null)}
                 >
-                  <Image
-                    src={project.image}
-                    alt={project.alt}
-                    layout="fill"
-                    objectFit="cover"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  />
-                </motion.div>
-              </motion.div>
-            </Link>
+                  {/* Image container */}
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    {/* Overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-surface-DEFAULT via-transparent to-transparent opacity-60" />
+                    
+                    {/* Hover overlay */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-neon-purple/40 to-neon-blue/40 flex items-center justify-center"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: hoveredId === project.id ? 1 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: hoveredId === project.id ? 1 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"
+                      >
+                        <HiArrowUpRight className="text-white text-xl" />
+                      </motion.div>
+                    </motion.div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-neon-purple/20 text-neon-purple bg-neon-purple/5"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-neon-purple transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {project.longDescription}
+                    </p>
+
+                    {/* Arrow */}
+                    <div className="mt-4 flex items-center gap-2 text-sm font-medium text-neon-purple opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+                      <span>View Project</span>
+                      <HiArrowUpRight className="text-sm" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </div>
 
-    </div>
-      
-      {/* <Link href="#" className="btn-primary mx-auto">
-        <span> See more on Dribbble</span>
-      </Link> */}
-
-    </motion.div>
-  )
+        {/* More projects CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center mt-16"
+        >
+          <Link
+            href="mailto:kolawolekolapo20@gmail.com"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-300 group"
+          >
+            <span className="text-lg font-medium">Want to see more? </span>
+            <span className="gradient-text font-semibold text-lg group-hover:underline">Email me</span>
+            <HiArrowUpRight className="text-neon-purple group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
