@@ -110,7 +110,7 @@ export default function Navbar() {
                       {lastName.split("").map((letter, i) => (
                         <motion.span
                           key={`last-${i}`}
-                          className="font-semibold text-lg text-muted-foreground inline-block"
+                          className="font-bold text-lg gradient-text inline-block"
                           initial={{ opacity: 0, y: 10, rotateX: -90 }}
                           animate={{ opacity: 1, y: 0, rotateX: 0 }}
                           exit={{ opacity: 0, y: -10, rotateX: 90 }}

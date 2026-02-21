@@ -29,13 +29,12 @@ function DraggableLetter({
 
   // Scale up slightly when dragging
   const scale = useTransform(
-    [springX, springY],
-    // @ts-ignore
-    ([latestX, latestY]: [number, number]) => {
-      const distance = Math.sqrt(latestX * latestX + latestY * latestY);
-      return 1 + Math.min(distance / 500, 0.3);
-    }
-  );
+  [springX, springY] as any,
+  ([latestX, latestY]: [number, number]) => {
+    const distance = Math.sqrt(latestX * latestX + latestY * latestY);
+    return 1 + Math.min(distance / 500, 0.3);
+  }
+);
 
   return (
     <motion.span
@@ -198,7 +197,7 @@ export default function Header() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -213,7 +212,7 @@ export default function Header() {
           <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
           <HiArrowDown className="text-neon-purple text-lg" />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Decorative line */}
       <motion.div

@@ -100,7 +100,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
             </div>
 
             {/* === "olapo" letters sliding in === */}
-            <div className="flex items-center ml-[-4px]">
+            <div className="flex items-center ml-[-44px]">
               {"olapo".split("").map((letter, i) => (
                 <motion.span
                   key={i}
