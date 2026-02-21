@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -29,8 +29,8 @@ function DraggableLetter({
 
   // Scale up slightly when dragging
   const scale = useTransform(
-  [springX, springY] as any,
-  ([latestX, latestY]: [number, number]) => {
+  [springX, springY] as MotionValue<number>[],
+  ([latestX, latestY]: number[]) => {
     const distance = Math.sqrt(latestX * latestX + latestY * latestY);
     return 1 + Math.min(distance / 500, 0.3);
   }
